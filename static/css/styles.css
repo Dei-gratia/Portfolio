@@ -296,6 +296,10 @@ a:active {
   padding: 0.1rem 0.5rem;
 }
 
+.projects_img {
+	max-height: 320px;
+}
+
 .my_project_modal_title {
   position: relative;
   font-size: 1.25rem;
