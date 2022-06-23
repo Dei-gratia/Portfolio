@@ -310,6 +310,20 @@ a:active {
 	width: 100%;
 }
 
+.github-link {
+	color: black;
+	text-align: center !important;
+	text-decoration: underline;
+	position: relative;
+	margin: 30%;
+
+}
+
+.github-link:hover {
+	color: hsl(224, 89%, 60%);
+	text-decoration: underline;
+}
+
 .my_project_modal_title {
   position: relative;
   font-size: 1.25rem;
