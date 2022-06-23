@@ -144,25 +144,7 @@
 
 			</section>
 
-			<!-- PROJECTS   -->
-			<section class="projects section" id="projects" >
-				<h2 class="section_title">Projects</h2>
-				<div class="projects_container container_grid ">
-					{% for project in projects %}
-					<a href="" data-bs-toggle="modal" data-bs-target="#projectModal{{project.id}}">
-						<div class="project" >
-							<img src="{{ project.image.url }}" alt="" style="" class="projects_img">
-							<br/> 
-							<h4 class="project_title">{{ project.title }}</h4>
-							<div class="fade_txt" >
-								<p class="about_txt project_txt">{{ project.description }}</p>  
-							</div>
-						</div>
-					</a>
-					{% endfor %}
-				</div>
-
-			</section>
+			
 
 
 			<!-- CONTACT   -->
