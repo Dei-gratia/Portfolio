@@ -17,7 +17,7 @@
 		
 		<title>{{ home.first_name }}</title>
 	</head>
-	<body  data-bs-spy="scroll" data-bs-target="#my_nav_toggle" data-bs-offset="0" class="scrollspy-example" tabindex="0" >
+	<body  data-bs-spy="scroll" data-bs-target="#my_nav_toggle" data-bs-offset="0" class="scrollspy-example" tabindex="0" style="background-color: rgb(255, 255, 255) ;" >
 		<header>
 			<nav class="navbar navbar-expand-lg fixed-top navbar-light container_grid bg-light " id="mynavbar">
 				<div class="container-fluid">
@@ -58,30 +58,29 @@
 
 		<main>
 			<!--  HOME    -->
-			<section class="home container_grid" id="home">
-				<div class="home_data">
+			<section class="home container_grid" id="home" style="padding: 0.5rem;background-color: transparent;">
+				<div class="home_data" style="z-index: 100;">
 					<h1 class="home_title">{{ home.greeting }}, <br> I'am <br/><span class="home_title_color"> {{ home.first_name }}</span><br> {{ about.career }}</h1>
-					<a href="#contact" class="button">Get in touch</a>
+					<a href="#contact" class="button" style="color: white;">Get in touch</a>
 				</div>
 				<div class="home_social">
 					{% for profile in about.profile_set.all %}
-						<a href="{{ profile.link }}" class="home_social_icon"><i class='{{ profile.social_font_owesome_icon }}'></i></a>
+						<a href="{{ profile.link }}" title="{{ profile.social_name }}" class="home_social_icon"><i class='{{ profile.social_font_owesome_icon }}'></i></a>
 					{% endfor %}
 				</div>
-				<div class="home_img" >
-					<img class="img" src="{{ home.picture.url }}" >
-					<a href="#about"></a>
+				<div class="home_img" style=" ">
+					<a href="#about"><img class="img" class="scale-img" style="border-radius: 10px;" src="{{ home.picture.url }}" ></a>
 				</div>
 			</section>
 
 
 			<!-- ABOUT   -->
 			<section class="about section" id="about">
-				<h2 class="section_title">About</h2>
+				<h2 class="section_title">About Me</h2>
 
 				<div class="about_container container_grid">
 					<div class="about_img">
-						<img src="{{ about.profile_img.url }}" alt="">
+						<img src="{{ about.profile_img.url }}" class="scale-img" alt="">
 					</div>
 					
 					<div>
@@ -132,7 +131,27 @@
 					{% for project in projects %}
 					<a href="" data-bs-toggle="modal" data-bs-target="#projectModal{{project.id}}">
 						<div class="project" >
-							<img src="{{ project.image.url }}" alt="" class="projects_img">
+							<img src="{{ project.image.url }}" alt="" style="" class="projects_img">
+							<br/> 
+							<h4 class="project_title">{{ project.title }}</h4>
+							<div class="fade_txt" >
+								<p class="about_txt project_txt">{{ project.description }}</p>  
+							</div>
+						</div>
+					</a>
+					{% endfor %}
+				</div>
+
+			</section>
+
+			<!-- PROJECTS   -->
+			<section class="projects section" id="projects" >
+				<h2 class="section_title">Projects</h2>
+				<div class="projects_container container_grid ">
+					{% for project in projects %}
+					<a href="" data-bs-toggle="modal" data-bs-target="#projectModal{{project.id}}">
+						<div class="project" >
+							<img src="{{ project.image.url }}" alt="" style="" class="projects_img">
 							<br/> 
 							<h4 class="project_title">{{ project.title }}</h4>
 							<div class="fade_txt" >
