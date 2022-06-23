@@ -65,8 +65,8 @@ img {
 .container_grid {
   max-width: 1024px;
   display: grid;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .navbar-brand {
@@ -155,6 +155,14 @@ img {
   right: 0;
   width: 260px;
 }
+
+.scale-img {
+	transition: transform .2s;
+  }
+
+.scale-img:hover {
+	transform: scale(1.1);
+  }
 
 .button {
   display: inline-block;
@@ -297,7 +305,9 @@ a:active {
 }
 
 .projects_img {
-	max-height: 320px;
+	padding: 10px 5px 5px; 
+	height: 200px;
+	width: 100%;
 }
 
 .my_project_modal_title {

@@ -82,7 +82,7 @@ class Projects(models.Model):
     start_date = models.DateField()
     end_date = models.DateField(blank=True)
     description = models.TextField()
-    future_scope = models.TextField()
+    future_scope = models.TextField(blank=True)
 
 
 def __str__(self):

@@ -36,7 +36,7 @@ def index(request):
         if form.is_valid():
             form.save()
             email_subject = f'New contact{form.cleaned_data["name"]}, {form.cleaned_data["email"]}: from Portfolio'
-            email_message = form.cleaned_data['message']
+            email_message = f'Name: {form.cleaned_data["name"]}\nEmail: {form.cleaned_data["email"]}\n \nMessage: \n {form.cleaned_data["message"]}'
             print(settings.CONTACT_EMAIL + '\n')
             send_mail(email_subject, email_message,
                       settings.CONTACT_EMAIL, settings.ADMIN_EMAILS)
