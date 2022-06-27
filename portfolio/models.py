@@ -77,7 +77,7 @@ class Skills(models.Model):
 # PROJECTS SECTION
 
 
-class Project(models.Model):
+class Projects(models.Model):
     image = models.ImageField(upload_to='projects/')
     title = models.CharField(max_length=50)
     start_date = models.DateField()
@@ -90,19 +90,19 @@ class Project(models.Model):
 
 
 class ProjectRequirements(models.Model):
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    project = models.ForeignKey(Projects, on_delete=models.CASCADE)
     technology = models.CharField(max_length=254)
 
 
 class ProjectLink(models.Model):
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    project = models.ForeignKey(Projects, on_delete=models.CASCADE)
     link_text = models.CharField(max_length=50)
     link = models.URLField(max_length=254)
     font_owesome_icon = models.CharField(max_length=50, blank=True)
 
 
 class ProjectModule(models.Model):
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    project = models.ForeignKey(Projects, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     description = models.TextField()
 
