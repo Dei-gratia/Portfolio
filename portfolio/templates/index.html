@@ -68,7 +68,7 @@
 						<a href="{{ profile.link }}" title="{{ profile.social_name }}" class="home_social_icon"><i class='{{ profile.social_font_owesome_icon }}'></i></a>
 					{% endfor %}
 				</div>
-				<div class="home_img" style=" ">
+				<div class="home_img" style="">
 					<a href="#about"><img class="img" class="scale-img" style="border-radius: 10px;" src="{{ home.picture.url }}" ></a>
 				</div>
 			</section>
@@ -100,7 +100,7 @@
 					{% for category in categories %}
 						<div >
 							<h4 class="skills_category">{{ category.name }}</h4>
-							{% for skill in category.skills_set.all %}
+							{% for skill in category.skills.all %}
 							<div class="skills_data">
 								<div class="skills_names">
 									<i class="{{skill.font_owesome_icon}} skills_icon"></i>

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from nested_inline.admin import NestedModelAdmin, NestedStackedInline
-from .models import Home, About, Profile, Category, Skills, Projects, Work, Email, Phone, Contact, ProjectLink, ProjectModule, ProjectModuleImage, ProjectRequirements
+from .models import Home, About, Profile, Category, Skills, Project, Work, Email, Phone, Contact, ProjectLink, ProjectModule, ProjectModuleImage, ProjectRequirements
 
 # Register your models here.
 
@@ -34,7 +34,7 @@ class AboutAdmin(admin.ModelAdmin):
 
 
 # SKILLS
-class SkillsInline(admin.TabularInline):
+class SkillInline(admin.TabularInline):
     model = Skills
     extra = 2
 
@@ -42,7 +42,7 @@ class SkillsInline(admin.TabularInline):
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     inlines = [
-        SkillsInline,
+        SkillInline,
     ]
 
 
@@ -68,8 +68,8 @@ class ProjectRequirementsInline(NestedStackedInline):
     extra = 1
 
 
-class ProjectsInLine(NestedModelAdmin):
-    model = Projects
+class ProjectInLine(NestedModelAdmin):
+    model = Project
     extra = 1
     inlines = [
         ProjectRequirementsInline,
@@ -78,7 +78,7 @@ class ProjectsInLine(NestedModelAdmin):
     ]
 
 
-admin.site.register(Projects, ProjectsInLine)
+admin.site.register(Project, ProjectInLine)
 
 
 # WORK

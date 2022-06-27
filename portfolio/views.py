@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse
-from .models import Home, About, Profile, Category, Projects, Work, Email, Phone
+from .models import Home, About, Profile, Category, Project, Work, Email, Phone
 from .forms import ContactForm
 from django.http import HttpResponseRedirect
 from django.conf import settings
@@ -20,7 +20,7 @@ def index(request):
     categories = Category.objects.all()
 
     # Projects
-    projects = Projects.objects.all()
+    projects = Project.objects.all()
     print(projects)
 
     # Email and Phone

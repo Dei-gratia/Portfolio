@@ -67,7 +67,8 @@ class Category(models.Model):
 
 
 class Skills(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(
+        Category, related_name='skills', on_delete=models.CASCADE)
     skill_name = models.CharField(max_length=50)
     font_owesome_icon = models.CharField(max_length=50, blank=True)
     level = models.IntegerField(
@@ -76,7 +77,7 @@ class Skills(models.Model):
 # PROJECTS SECTION
 
 
-class Projects(models.Model):
+class Project(models.Model):
     image = models.ImageField(upload_to='projects/')
     title = models.CharField(max_length=50)
     start_date = models.DateField()
@@ -84,25 +85,24 @@ class Projects(models.Model):
     description = models.TextField()
     future_scope = models.TextField(blank=True)
 
-
-def __str__(self):
-    return f'Project {self.id}'
+    def __str__(self):
+        return self.title
 
 
 class ProjectRequirements(models.Model):
-    project = models.ForeignKey(Projects, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
     technology = models.CharField(max_length=254)
 
 
 class ProjectLink(models.Model):
-    project = models.ForeignKey(Projects, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
     link_text = models.CharField(max_length=50)
     link = models.URLField(max_length=254)
     font_owesome_icon = models.CharField(max_length=50, blank=True)
 
 
 class ProjectModule(models.Model):
-    project = models.ForeignKey(Projects, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     description = models.TextField()
 
